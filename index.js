@@ -42,6 +42,11 @@ app.use(cors({ origin: process.env.CLIENT_URL }));
 app.use("/webhooks", webhookRouter);
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.status(200).send("Backend is up and running!");
+});
+
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", 
